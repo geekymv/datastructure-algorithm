@@ -34,6 +34,17 @@ public class DoubleLinkedList {
         return true;
     }
 
+    /**
+     * 返回指定位置的元素
+     * @param index
+     * @return
+     */
+    public Integer get(int index) {
+        this.checkIndex(index);
+
+        Node node = this.node(index);
+        return node.item;
+    }
 
     /**
      * 删除指定索引位置的结点
@@ -44,21 +55,18 @@ public class DoubleLinkedList {
         this.checkIndex(index);
 
         // 找到要删除的结点
-        Node tmp = head.next;
-        for(int i = 0; i < index; i++) {
-            tmp = tmp.next;
-        }
-        Integer val = tmp.item;
-        tmp.item = null;
+        Node node = this.node(index);
+        Integer val = node.item;
+        node.item = null;
 
         // 删除自身
-        tmp.prev.next = tmp.next;
-        if(tmp.next != null) {
-            tmp.next.prev = tmp.prev;
+        node.prev.next = node.next;
+        if(node.next != null) {
+            node.next.prev = node.prev;
         }
 
-        tmp.next = null;
-        tmp.prev = null;
+        node.next = null;
+        node.prev = null;
 
         size--;
 
@@ -76,6 +84,15 @@ public class DoubleLinkedList {
             System.out.println(tmp.item);
         }
     }
+
+    Node node(int index) {
+        Node tmp = head;
+        for(int i = 0; i <= index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp;
+    }
+
 
     private void checkIndex(int index) {
         if(index < 0 || index >= size) {

@@ -15,9 +15,12 @@ public class DoubleLinkedListTest {
         linkedList.list();
 
         System.out.println("--------------------");
-
-        linkedList.remove(1);
+        linkedList.remove(2);
         linkedList.list();
+
+        System.out.println("--------------------");
+        Integer item = linkedList.get(0);
+        System.out.println(item);
     }
 
 }
