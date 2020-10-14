@@ -23,6 +23,7 @@ public class DoubleLinkedList {
         // tmp 指向头结点
         Node tmp = head;
 
+        // 找到尾结点
         while (tmp.next != null) {
             tmp = tmp.next;
         }
@@ -41,6 +42,7 @@ public class DoubleLinkedList {
      */
     public Integer remove(int index) {
         this.checkIndex(index);
+
         // 找到要删除的结点
         Node tmp = head.next;
         for(int i = 0; i < index; i++) {
@@ -49,6 +51,7 @@ public class DoubleLinkedList {
         Integer val = tmp.item;
         tmp.item = null;
 
+        // 删除自身
         tmp.prev.next = tmp.next;
         if(tmp.next != null) {
             tmp.next.prev = tmp.prev;
