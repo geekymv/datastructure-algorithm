@@ -61,10 +61,11 @@ public class JosephusCycle {
 
         while (true) {
             // 向后数到1...m
+            // 找到待删除的前一个人
             for(int i = 0; i < m-1; i++) {
                 tmp = tmp.next;
             }
-            // 找到待删除的前一个人
+
             if(tmp.next == tmp) {
                 System.out.println("最后一个出圈的人 = " + tmp.next.item);
                 break;
