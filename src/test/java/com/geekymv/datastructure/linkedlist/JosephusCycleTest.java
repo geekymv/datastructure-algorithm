@@ -7,7 +7,7 @@ public class JosephusCycleTest {
     @Test
     public void test() {
         JosephusCycle list = new JosephusCycle();
-        list.josephus(5, 1, 2);
+        list.josephus(5, 2, 3);
     }
 
 }
