@@ -1,8 +1,8 @@
 package com.geekymv.datastructure.statck;
 
-public class ArrayStack {
+public class ArrayStack<T> {
 
-    private Integer[] items;
+    private Object[] items;
 
     private final int stackSize;
 
@@ -10,10 +10,10 @@ public class ArrayStack {
 
     public ArrayStack(int stackSize) {
         this.stackSize = stackSize;
-        items = new Integer[stackSize];
+        items = new Object[stackSize];
     }
 
-    public boolean push(Integer item) {
+    public boolean push(Object item) {
         if(top == stackSize) {
             System.out.println("栈已满");
             return false;
@@ -23,12 +23,32 @@ public class ArrayStack {
         return true;
     }
 
-    public Integer pop() {
+    public T pop() {
         if(top == 0) {
             System.out.println("栈为空");
             return null;
         }
-        return items[--top];
+        return (T)items[--top];
+    }
+
+    /**
+     * 返回栈顶元素
+     * @return
+     */
+    public T peek() {
+        if(top == 0) {
+            System.out.println("栈为空");
+            return null;
+        }
+        return (T)items[top-1];
+    }
+
+    /**
+     * 判断栈是否为空
+     * @return
+     */
+    public boolean isEmpty() {
+        return top == 0;
     }
 
 
