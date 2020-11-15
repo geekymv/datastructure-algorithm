@@ -5,7 +5,7 @@ public class MathExpress {
 
     public static void main(String[] args) {
 
-        String express = "4+2*3-10/5";
+        String express = "4 + 2 * 3 - 10 / 5";
 
         ArrayStack<Double> numStack = new ArrayStack(10);
         ArrayStack<Character> opStack = new ArrayStack(10);
@@ -14,9 +14,9 @@ public class MathExpress {
         for(int i = 0, len = express.length(); i < len; i++) {
             char c = express.charAt(i);
             if(c == '+' || c == '-' || c == '*' || c == '/') {
-
                 // 从字符串中截取出数字
-                Double num = Double.parseDouble(express.substring(index, i));
+                String value = express.substring(index, i).trim();
+                Double num = Double.parseDouble(value);
                 numStack.push(num);
                 index = i + 1;
 
@@ -58,9 +58,7 @@ public class MathExpress {
             numStack.push(res);
         }
 
-        numStack.list();
-
-        opStack.list();
+        System.out.println(express +" = " + numStack.pop());
 
     }
 
@@ -76,7 +74,7 @@ public class MathExpress {
                 return v2 / v1;
 
             default:
-                return 0;
+                throw new IllegalArgumentException("不支持的运算符" + c);
         }
     }
 
@@ -103,7 +101,7 @@ public class MathExpress {
         }else if(c == '*' || c == '/') {
             return 1;
         }
-        return -1;
+        throw new IllegalArgumentException("不支持的运算符" + c);
     }
 
 
