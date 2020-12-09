@@ -8,12 +8,11 @@ public class BubbleSortTest {
 
     @Test
     public void testSort() {
-        int[] arr = {6, 4, 7, 3, 2, 5, 1};
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {4, 6, 3, 5, 2, 1};
+        System.out.println("排序前：" + Arrays.toString(arr));
 
         BubbleSort sort = new BubbleSort();
         sort.sort(arr);
-        System.out.println(Arrays.toString(arr));
     }
 
 }
