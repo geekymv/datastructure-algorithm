@@ -8,14 +8,20 @@ public class BubbleSort {
         int len = arr.length;
         for(int i = 0; i < len-1; i++) {
             System.out.print("第" + (i+1) + "次冒泡");
-
+            // 是否交换的标识位，用于提前结束冒泡
+            boolean flag = false;
             for(int j = 0; j < len-1 - i; j++) { // 参与冒泡的元素索引
                 if(arr[j] > arr[j+1]) {
                     swap(arr, j, j+1);
+                    flag = true;
                 }
             }
 
             System.out.println(Arrays.toString(arr));
+
+            if(!flag) {
+                break;
+            }
         }
 
         System.out.println("排序后：" + Arrays.toString(arr));
