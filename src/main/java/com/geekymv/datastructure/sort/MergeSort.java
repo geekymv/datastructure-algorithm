@@ -20,15 +20,15 @@ public class MergeSort {
             return;
         }
 
-        // 取p、r 中间的位置
-        int q = (start + end) / 2;
+        // 取start、end 中间的位置
+        int mid = (start + end) / 2;
 
         // 分治递归
-        mergeSort(arr, start, q);
-        mergeSort(arr, q+1, end);
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid+1, end);
 
         // 合并数据
-        merge(arr, start, q, end);
+        merge(arr, start, mid, end);
     }
 
 
