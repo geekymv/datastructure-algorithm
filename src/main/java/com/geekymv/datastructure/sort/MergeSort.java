@@ -41,9 +41,9 @@ public class MergeSort {
      */
     public void merge(int arr[], int start, int mid, int end) {
         int[] temp = new int[end-start+1]; // 申请一个和arr[p, r] 长度一样的数组
-        int k = 0; // 指向临时数组的起始位置
-        int i = start; // 指向左边数组的起始位置
-        int j = mid+1; // 指向右边数组的起始位置
+        int k = 0; // 指向临时数组的起始下标
+        int i = start; // 指向左边数组的起始下标
+        int j = mid+1; // 指向右边数组的起始下标
 
         // 把 arr[start, mid] 和 arr[mid+1, end] 中较小的数添加到temp中
         while(i <=mid && j <= end) {
