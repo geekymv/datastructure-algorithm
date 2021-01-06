@@ -34,7 +34,7 @@ public class InPlaceMergeSort {
             }else if(j > high) { // 右半部分取完了，取左半部分
                 arr[k] = aux[i++];
 
-            } else if(aux[i] < aux[j]) { // 左半部分的元素比右半部分元素小，取左半部分
+            } else if(aux[i] <= aux[j]) { // 左半部分的元素比右半部分元素小，取左半部分
                 arr[k] = aux[i++];
             } else { // 否则取右半部分
                 arr[k] = aux[j++];
